@@ -7,8 +7,9 @@ import {
   Select,
   MenuItem,
   Card,
-  CardContent
+  CardContent,
 } from '@material-ui/core';
+import { sortData } from './util';
 
 function App() {
   const [countryCode, setCountryCode] = useState('worldwide');
@@ -26,7 +27,9 @@ function App() {
             value: country.countryInfo.iso2,
           }));
 
-          setTableData(data);
+          const sortedData = sortData(data);
+
+          setTableData(sortedData);
           setCountries(countries);
         });
     };
