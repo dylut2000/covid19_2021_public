@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InfoBox from './components/InfoBox';
 import Map from './components/Map';
 import Table from './components/Table';
+import LineGraph from './components/LineGraph';
 import {
   FormControl,
   Select,
@@ -48,7 +49,6 @@ function App() {
     await fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setCountryInfo(data);
         setCountryCode(countryCode);
       });
@@ -103,6 +103,8 @@ function App() {
           <h3>Worldwide new cases</h3>
         </CardContent>
       </Card>
+
+      <LineGraph />
     </div>
   );
 }
